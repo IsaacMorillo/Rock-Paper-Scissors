@@ -71,7 +71,21 @@ function playRound(humanChoice, computerChoice) {
   console.log(`Computer puntuation: ${computerScore}`);
 }
 
-let human = getHumanChoice();
-let com = getComputerChoice();
+function playGame() {
+  for (let i = 1; i <= 5; i++) {
+    const player = getHumanChoice();
+    const cpu = getComputerChoice();
+    playRound(player, cpu);
+  }
+  console.log(`Your final puntuation: ${humanScore}`);
+  console.log(`Computer final puntuation: ${computerScore}`);
+  if (humanScore > computerScore) {
+    console.log(`Congrats!! You win!!`);
+  } else if (humanScore < computerScore) {
+    console.log(`Sorry, you lose`);
+  } else {
+    console.log(`This is a tie!!`);
+  }
+}
 
-playRound(human, com);
+playGame();
