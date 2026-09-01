@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   const numRan = Math.ceil(Math.random() * 3);
   switch (numRan) {
