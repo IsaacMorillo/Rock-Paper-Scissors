@@ -7,7 +7,7 @@ humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     const humanChoice = getHumanChoice(option);
     const cpuChoice = getComputerChoice();
-    showChoices(cpuChoice);
+    showChoices(humanChoice, cpuChoice);
     playRound(humanChoice, cpuChoice);
   });
 });
@@ -73,13 +73,22 @@ function playGame() {
 }
 
 function showChoices(humanChoice, cpuChoice) {
-  
+  const choicesContainer = document.createElement("div");
+  addChoiceContent('PLAYER', humanChoice, choicesContainer);
+  const confrontatioSymbolContainer = document.createElement('p');
+  confrontatioSymbolContainer.textContent = 'VS';
+  choicesContainer.appendChild(confrontatioSymbolContainer);
+  addChoiceContent('CPU', cpuChoice, choicesContainer); 
+  choicesContainer
+  body.appendChild(choicesContainer);
 }
 
-function addChoiceContent(content, parentContainer) {
+function addChoiceContent(player, content, parentContainer) {
+  const choicePlayer = document.createElement("p");
+  choicePlayer.textContent = player;
   const choiceContainer = document.createElement("p");
   choiceContainer.textContent = content;
-  parentContainer.appendChild(choiceContainer);
+  parentContainer.append(choicePlayer, choiceContainer);
 }
 
 //playGame();
