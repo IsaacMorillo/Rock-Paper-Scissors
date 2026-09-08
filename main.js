@@ -7,7 +7,7 @@ humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     const humanChoice = getHumanChoice(option);
     const cpuChoice = getComputerChoice();
-    showChoice(cpuChoice);
+    showChoices(cpuChoice);
     playRound(humanChoice, cpuChoice);
   });
 });
@@ -72,10 +72,14 @@ function playGame() {
   }
 }
 
-function showChoice(content) {
+function showChoices(humanChoice, cpuChoice) {
+  
+}
+
+function addChoiceContent(content, parentContainer) {
   const choiceContainer = document.createElement("p");
   choiceContainer.textContent = content;
-  body.appendChild(choiceContainer);
+  parentContainer.appendChild(choiceContainer);
 }
 
 //playGame();
