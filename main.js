@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let opcionRock = document.querySelector(".opcion-Container");
 
 function getComputerChoice() {
   const numRan = Math.ceil(Math.random() * 3);
@@ -13,8 +14,14 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  return prompt("Select between Rock, Paper or Scissors");
+opcionRock.addEventListener("click", () => {
+  const humanChoice = getHumanChoice(opcionRock);
+  console.log(humanChoice);
+});
+
+function getHumanChoice(opcion) {
+  const humanChoiceContainer = opcion.querySelector("button");
+  return humanChoiceContainer.textContent;
 }
 
 function playRound(humanChoice, computerChoice) {
