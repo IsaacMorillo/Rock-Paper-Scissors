@@ -1,6 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-let opcionRock = document.querySelector(".opcion-Container");
+let humanOptions = document.querySelectorAll(".opcion-Container");
 
 function getComputerChoice() {
   const numRan = Math.ceil(Math.random() * 3);
@@ -14,9 +14,11 @@ function getComputerChoice() {
   }
 }
 
-opcionRock.addEventListener("click", () => {
-  const humanChoice = getHumanChoice(opcionRock);
-  console.log(humanChoice);
+humanOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const humanChoice = getHumanChoice(option);
+    console.log(humanChoice);
+  });
 });
 
 function getHumanChoice(opcion) {
