@@ -31,25 +31,24 @@ function getHumanChoice(opcion) {
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
-  console.log(`Your choice: ${humanChoice}`);
-  console.log(`Computer choice: ${computerChoice}`);
+  const winnerContainer = document.createElement("div");
+  let winner = "";
   if (
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
-    console.log(`You win!! ${humanChoice} beats ${computerChoice}`);
+    winner = "PLAYER";
     ++humanScore;
   } else if (
     (humanChoice === "paper" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "rock") ||
     (humanChoice === "rock" && computerChoice === "paper")
   ) {
-    console.log(`You lose. ${computerChoice} beat ${humanChoice}`);
+    winner = "CPU";
     ++computerScore;
-  } else if (humanChoice === computerChoice) {
-    console.log("You tied! You got the same thing as the computer");
   }
+  showWinner(winner, winnerContainer);
   console.log(`Your puntuation: ${humanScore}`);
   console.log(`Computer puntuation: ${computerScore}`);
 }
@@ -74,12 +73,12 @@ function playGame() {
 
 function showChoices(humanChoice, cpuChoice) {
   const choicesContainer = document.createElement("div");
-  addChoiceContent('PLAYER', humanChoice, choicesContainer);
-  const confrontatioSymbolContainer = document.createElement('p');
-  confrontatioSymbolContainer.textContent = 'VS';
+  addChoiceContent("PLAYER", humanChoice, choicesContainer);
+  const confrontatioSymbolContainer = document.createElement("p");
+  confrontatioSymbolContainer.textContent = "VS";
   choicesContainer.appendChild(confrontatioSymbolContainer);
-  addChoiceContent('CPU', cpuChoice, choicesContainer); 
-  choicesContainer
+  addChoiceContent("CPU", cpuChoice, choicesContainer);
+  choicesContainer;
   body.appendChild(choicesContainer);
 }
 
@@ -89,6 +88,20 @@ function addChoiceContent(player, content, parentContainer) {
   const choiceContainer = document.createElement("p");
   choiceContainer.textContent = content;
   parentContainer.append(choicePlayer, choiceContainer);
+}
+
+function showWinner(content, parentContainer) {
+  const titleContainer = document.createElement("p");
+  if (content !== "") {
+    titleContainer.textContent = "WINNER!!";
+    const winnerName = document.createElement("p");
+    winnerName.textContent = content;
+    parentContainer.append(titleContainer, winnerName);
+  } else {
+    titleContainer.textContent = "DRAW";
+    parentContainer.appendChild(titleContainer);
+  }
+  body.appendChild(parentContainer);
 }
 
 //playGame();
