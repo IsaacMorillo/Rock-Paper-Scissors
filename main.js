@@ -1,6 +1,16 @@
 let humanScore = 0;
 let computerScore = 0;
-let humanOptions = document.querySelectorAll(".opcion-Container");
+const humanOptions = document.querySelectorAll(".opcion-Container");
+const body = document.querySelector("body");
+
+humanOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    const humanChoice = getHumanChoice(option);
+    const cpuChoice = getComputerChoice();
+    showChoice(cpuChoice);
+    playRound(humanChoice, cpuChoice);
+  });
+});
 
 function getComputerChoice() {
   const numRan = Math.ceil(Math.random() * 3);
@@ -13,13 +23,6 @@ function getComputerChoice() {
       return "scissors";
   }
 }
-
-humanOptions.forEach((option) => {
-  option.addEventListener("click", () => {
-    const humanChoice = getHumanChoice(option);
-    console.log(humanChoice);
-  });
-});
 
 function getHumanChoice(opcion) {
   const humanChoiceContainer = opcion.querySelector("button");
@@ -67,6 +70,12 @@ function playGame() {
   } else {
     console.log(`This is a tie!!`);
   }
+}
+
+function showChoice(content) {
+  const choiceContainer = document.createElement("p");
+  choiceContainer.textContent = content;
+  body.appendChild(choiceContainer);
 }
 
 //playGame();
