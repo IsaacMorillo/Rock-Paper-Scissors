@@ -26,12 +26,12 @@ h3,
 }
 
 #info {
-    margin: 0px auto 40px;
-    font-size: 1.3rem;
+  margin: 0px auto 40px;
+  font-size: 1.3rem;
 }
 
-#number-round{
-    font-size: 2rem;
+#number-round {
+  font-size: 2rem;
 }
 
 h1 {
@@ -50,6 +50,26 @@ h3 {
   font-size: 2rem;
   width: 200px;
   color: var(--violet-color);
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid var(--violet-color);
+  margin: 20px auto 40px;
+  width: 75%;
+  padding: 20px;
+}
+
+.score {
+  padding: 10px;
+  text-align: center;
+  width: 120px;
+}
+
+.score p {
+  font-size: 1.5rem;
+  margin: 10px auto;
 }
 
 .options {
