@@ -4,9 +4,11 @@ const humanOptions = document.querySelectorAll(".opcion-Container");
 const body = document.querySelector("body");
 const numberRoundContainer = document.querySelector("#number-round");
 let numberRound = Number(numberRoundContainer.textContent);
+const infoGameContainer = document.querySelector(".info-game");
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
+    infoGameContainer.innerHTML = ''
     const humanChoice = getHumanChoice(option);
     const cpuChoice = getComputerChoice();
     showChoices(humanChoice, cpuChoice);
@@ -52,8 +54,6 @@ function playRound(humanChoice, computerChoice) {
   }
   showWinner(winner, winnerContainer);
   numberRoundContainer.textContent = ++numberRound;
-  console.log(`Your puntuation: ${humanScore}`);
-  console.log(`Computer puntuation: ${computerScore}`);
 }
 
 function playGame() {
@@ -75,14 +75,12 @@ function playGame() {
 }
 
 function showChoices(humanChoice, cpuChoice) {
-  const choicesContainer = document.createElement("div");
-  addChoiceContent("PLAYER", humanChoice, choicesContainer);
+  addChoiceContent("PLAYER", humanChoice, infoGameContainer);
   const confrontatioSymbolContainer = document.createElement("p");
   confrontatioSymbolContainer.textContent = "VS";
-  choicesContainer.appendChild(confrontatioSymbolContainer);
-  addChoiceContent("CPU", cpuChoice, choicesContainer);
-  choicesContainer;
-  body.appendChild(choicesContainer);
+  infoGameContainer.appendChild(confrontatioSymbolContainer);
+  addChoiceContent("CPU", cpuChoice, infoGameContainer);
+  body.appendChild(infoGameContainer);
 }
 
 function addChoiceContent(player, content, parentContainer) {
