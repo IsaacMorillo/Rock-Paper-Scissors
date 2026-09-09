@@ -121,3 +121,9 @@ h3 {
 .opcion-Container:active {
   filter: brightness(80%);
 }
+
+.info-game{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}

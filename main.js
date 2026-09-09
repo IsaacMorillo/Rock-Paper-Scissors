@@ -6,9 +6,12 @@ const numberRoundContainer = document.querySelector("#number-round");
 let numberRound = Number(numberRoundContainer.textContent);
 const infoGameContainer = document.querySelector(".info-game");
 
+const infoWinnerRound = document.createElement('div');
+
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     infoGameContainer.innerHTML = "";
+    infoWinnerRound.innerHTML ="";
     const humanChoice = getHumanChoice(option);
     const cpuChoice = getComputerChoice();
     showChoices(humanChoice, cpuChoice);
@@ -51,7 +54,7 @@ function playRound(humanChoice, computerChoice) {
     winner = "CPU";
     document.querySelector("#cpuScore").textContent = ++computerScore;
   }
-  showWinner(winner, infoGameContainer);
+  showWinner(winner, infoWinnerRound);
   numberRoundContainer.textContent = ++numberRound;
 }
 
@@ -93,7 +96,7 @@ function addChoiceContent(player, content, parentContainer) {
 function showWinner(content, parentContainer) {
   const titleContainer = document.createElement("p");
   if (content !== "") {
-    titleContainer.textContent = "ROUND WINNER!!";
+    titleContainer.textContent = "ROUND WINNER";
     const winnerName = document.createElement("p");
     winnerName.textContent = content;
     parentContainer.append(titleContainer, winnerName);
