@@ -3,21 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <title>Rock-Paper-Scissors</title>
   </head>
   <body>
-    <div class="opcion-Container">
-      <img src="./images/puno-cerrado.png" alt="icono-rock" />
-      <button class="playerChoice" id="rock">Rock</button>
-    </div>
-    <div class="opcion-Container">
-      <img src="./images/papel-de-mano.png" alt="icono-paper" />
-      <button class="playerChoice" id="paper">Paper</button>
-    </div>
-    <div class="opcion-Container">
-      <img src="./images/tijeras.png" alt="icon-scissors" />
-      <button class="playerChoice" id="scissors">Scissors</button>
+    <h1>Rock - Paper - Scissors</h1>
+    <p id="info">The first to score 5 points wins</p>
+    <h2>Round <span id="number-round">1</span></h2>
+    <h3>Choose!!</h3>
+    <div class="options">
+      <div class="opcion-Container" id="rock">
+        <img src="./images/puno-cerrado.png" alt="icono-rock" />
+        <p class="playerChoice">Rock</p>
+      </div>
+      <div class="opcion-Container" id="paper">
+        <img src="./images/papel-de-mano.png" alt="icono-paper" />
+        <p class="playerChoice">Paper</p>
+      </div>
+      <div class="opcion-Container" id="scissors">
+        <img src="./images/tijeras.png" alt="icon-scissors" />
+        <p class="playerChoice">Scissors</p>
+      </div>
     </div>
     <script src="./main.js"></script>
   </body>

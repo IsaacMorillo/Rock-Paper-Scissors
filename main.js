@@ -25,7 +25,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(opcion) {
-  const humanChoiceContainer = opcion.querySelector("button");
+  const humanChoiceContainer = opcion.querySelector(".playerChoice");
   return humanChoiceContainer.textContent;
 }
 
@@ -104,4 +104,3 @@ function showWinner(content, parentContainer) {
   body.appendChild(parentContainer);
 }
 
-//playGame();
