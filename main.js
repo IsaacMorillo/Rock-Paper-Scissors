@@ -1,9 +1,9 @@
-let humanScore = 0;
-let computerScore = 0;
+let humanScore = Number(document.querySelector("#playerScore").textContent);
+let computerScore = Number(document.querySelector("#cpuScore").textContent);
 const humanOptions = document.querySelectorAll(".opcion-Container");
 const body = document.querySelector("body");
-const numberRoundContainer = document.querySelector('#number-round');
-let numberRound = Number(numberRoundContainer.textContent)
+const numberRoundContainer = document.querySelector("#number-round");
+let numberRound = Number(numberRoundContainer.textContent);
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
@@ -41,14 +41,14 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     winner = "PLAYER";
-    ++humanScore;
+    document.querySelector("#playerScore").textContent = ++humanScore;
   } else if (
     (humanChoice === "paper" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "rock") ||
     (humanChoice === "rock" && computerChoice === "paper")
   ) {
     winner = "CPU";
-    ++computerScore;
+    document.querySelector("#cpuScore").textContent = ++computerScore;
   }
   showWinner(winner, winnerContainer);
   numberRoundContainer.textContent = ++numberRound;
@@ -106,4 +106,3 @@ function showWinner(content, parentContainer) {
   }
   body.appendChild(parentContainer);
 }
-
