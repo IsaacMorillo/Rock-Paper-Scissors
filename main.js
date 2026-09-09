@@ -2,6 +2,8 @@ let humanScore = 0;
 let computerScore = 0;
 const humanOptions = document.querySelectorAll(".opcion-Container");
 const body = document.querySelector("body");
+const numberRoundContainer = document.querySelector('#number-round');
+let numberRound = Number(numberRoundContainer.textContent)
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
@@ -49,6 +51,7 @@ function playRound(humanChoice, computerChoice) {
     ++computerScore;
   }
   showWinner(winner, winnerContainer);
+  numberRoundContainer.textContent = ++numberRound;
   console.log(`Your puntuation: ${humanScore}`);
   console.log(`Computer puntuation: ${computerScore}`);
 }
