@@ -86,11 +86,13 @@ function showChoices(humanChoice, cpuChoice) {
 }
 
 function addChoiceContent(player, content, parentContainer) {
+  const containerChoice = document.createElement('div');
   const choicePlayer = document.createElement("p");
   choicePlayer.textContent = player;
   const choiceContainer = document.createElement("p");
   choiceContainer.textContent = content;
-  parentContainer.append(choicePlayer, choiceContainer);
+  containerChoice.append(choicePlayer, choiceContainer);
+  parentContainer.appendChild(containerChoice);
 }
 
 function showWinner(content, parentContainer) {
