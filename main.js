@@ -8,7 +8,7 @@ const infoGameContainer = document.querySelector(".info-game");
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
-    infoGameContainer.innerHTML = ''
+    infoGameContainer.innerHTML = "";
     const humanChoice = getHumanChoice(option);
     const cpuChoice = getComputerChoice();
     showChoices(humanChoice, cpuChoice);
@@ -35,7 +35,6 @@ function getHumanChoice(opcion) {
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase();
-  const winnerContainer = document.createElement("div");
   let winner = "";
   if (
     (humanChoice === "paper" && computerChoice === "rock") ||
@@ -52,7 +51,7 @@ function playRound(humanChoice, computerChoice) {
     winner = "CPU";
     document.querySelector("#cpuScore").textContent = ++computerScore;
   }
-  showWinner(winner, winnerContainer);
+  showWinner(winner, infoGameContainer);
   numberRoundContainer.textContent = ++numberRound;
 }
 
@@ -94,7 +93,7 @@ function addChoiceContent(player, content, parentContainer) {
 function showWinner(content, parentContainer) {
   const titleContainer = document.createElement("p");
   if (content !== "") {
-    titleContainer.textContent = "WINNER!!";
+    titleContainer.textContent = "ROUND WINNER!!";
     const winnerName = document.createElement("p");
     winnerName.textContent = content;
     parentContainer.append(titleContainer, winnerName);
