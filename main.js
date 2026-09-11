@@ -8,6 +8,8 @@ const infoGameContainer = document.querySelector(".info-game");
 
 const infoWinner = document.createElement("div");
 infoWinner.classList.add("info-Winner-Round");
+const containerWinner = document.createElement("div");
+containerWinner.classList.add("info-Winner-Round");
 
 const messageFinishRound = document.createElement("p");
 messageFinishRound.classList.add("title-round");
@@ -16,15 +18,23 @@ humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     infoGameContainer.innerHTML = "";
     infoWinner.innerHTML = "";
-    if (humanScore < 2 && computerScore < 2) {
+    if (humanScore < 5 && computerScore < 5) {
       const humanChoice = getHumanChoice(option).toLowerCase();
       const cpuChoice = getComputerChoice();
       messageFinishRound.textContent = `Round ${numberRoundContainer.textContent} played:`;
       body.appendChild(messageFinishRound);
       showChoices(humanChoice, cpuChoice);
       playRound(humanChoice, cpuChoice);
-    }else{
-      messageFinishRound.remove();
+      if (humanScore == 5 || computerScore == 5) {
+        if (humanScore == 5) {
+          showWinnerGame("PLAYER", containerWinner);
+        } else {
+          showWinnerGame("CPU", containerWinner);
+        }
+        body.appendChild(containerWinner);
+        messageFinishRound.textContent = "GAME OVER";
+      }
+    } else {
       infoWinner.remove();
       numberRoundContainer.parentElement.parentElement.remove();
     }
@@ -70,8 +80,6 @@ function playRound(humanChoice, computerChoice) {
   numberRoundContainer.textContent = ++numberRound;
 }
 
-function playGame(player, cpu) {}
-
 function showChoices(humanChoice, cpuChoice) {
   addChoiceContent("PLAYER", humanChoice, infoGameContainer);
   const confrontatioSymbolContainer = document.createElement("p");
@@ -114,4 +122,13 @@ function addBackgroundContainer(content, parentContainer) {
   } else if (content === "CPU") {
     parentContainer.style.backgroundColor = "#D61515";
   }
+}
+
+function showWinnerGame(content, parentContainer) {
+  const titleContainer = document.createElement("p");
+  titleContainer.textContent = "GAME WINNER";
+  const winnerName = document.createElement("p");
+  winnerName.textContent = content;
+  parentContainer.append(titleContainer, winnerName);
+  addBackgroundContainer(content, parentContainer);
 }
