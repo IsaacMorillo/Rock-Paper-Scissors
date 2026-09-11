@@ -10,7 +10,7 @@ const infoWinnerRound = document.createElement("div");
 infoWinnerRound.classList.add("info-Winner-Round");
 
 const messageFinishRound = document.createElement("p");
-messageFinishRound.classList.add("title-round")
+messageFinishRound.classList.add("title-round");
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
@@ -60,26 +60,12 @@ function playRound(humanChoice, computerChoice) {
     winner = "CPU";
     document.querySelector("#cpuScore").textContent = ++computerScore;
   }
-  showWinner(winner, infoWinnerRound);
+  showWinnerRound(winner, infoWinnerRound);
   numberRoundContainer.textContent = ++numberRound;
 }
 
-function playGame() {
-  for (let i = 1; i <= 5; i++) {
-    console.log("ROUND " + i + " !!");
-    const player = getHumanChoice();
-    const cpu = getComputerChoice();
-    playRound(player, cpu);
-  }
-  console.log(`Your final puntuation: ${humanScore}`);
-  console.log(`Computer final puntuation: ${computerScore}`);
-  if (humanScore > computerScore) {
-    console.log(`Congrats!! You win!!`);
-  } else if (humanScore < computerScore) {
-    console.log(`Sorry, you lose`);
-  } else {
-    console.log(`This is a tie!!`);
-  }
+function playGame(player, cpu) {
+
 }
 
 function showChoices(humanChoice, cpuChoice) {
@@ -102,7 +88,7 @@ function addChoiceContent(player, content, parentContainer) {
   parentContainer.appendChild(containerChoice);
 }
 
-function showWinner(content, parentContainer) {
+function showWinnerRound(content, parentContainer) {
   const titleContainer = document.createElement("p");
   if (content !== "") {
     titleContainer.textContent = "ROUND WINNER";
