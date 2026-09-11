@@ -6,8 +6,8 @@ const numberRoundContainer = document.querySelector("#number-round");
 let numberRound = Number(numberRoundContainer.textContent);
 const infoGameContainer = document.querySelector(".info-game");
 
-const infoWinnerRound = document.createElement("div");
-infoWinnerRound.classList.add("info-Winner-Round");
+const infoWinner = document.createElement("div");
+infoWinner.classList.add("info-Winner-Round");
 
 const messageFinishRound = document.createElement("p");
 messageFinishRound.classList.add("title-round");
@@ -15,13 +15,19 @@ messageFinishRound.classList.add("title-round");
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     infoGameContainer.innerHTML = "";
-    infoWinnerRound.innerHTML = "";
-    const humanChoice = getHumanChoice(option).toLowerCase();
-    const cpuChoice = getComputerChoice();
-    messageFinishRound.textContent = `Round ${numberRoundContainer.textContent} played:`;
-    body.appendChild(messageFinishRound);
-    showChoices(humanChoice, cpuChoice);
-    playRound(humanChoice, cpuChoice);
+    infoWinner.innerHTML = "";
+    if (humanScore < 2 && computerScore < 2) {
+      const humanChoice = getHumanChoice(option).toLowerCase();
+      const cpuChoice = getComputerChoice();
+      messageFinishRound.textContent = `Round ${numberRoundContainer.textContent} played:`;
+      body.appendChild(messageFinishRound);
+      showChoices(humanChoice, cpuChoice);
+      playRound(humanChoice, cpuChoice);
+    }else{
+      messageFinishRound.remove();
+      infoWinner.remove();
+      numberRoundContainer.parentElement.parentElement.remove();
+    }
   });
 });
 
@@ -60,13 +66,11 @@ function playRound(humanChoice, computerChoice) {
     winner = "CPU";
     document.querySelector("#cpuScore").textContent = ++computerScore;
   }
-  showWinnerRound(winner, infoWinnerRound);
+  showWinnerRound(winner, infoWinner);
   numberRoundContainer.textContent = ++numberRound;
 }
 
-function playGame(player, cpu) {
-
-}
+function playGame(player, cpu) {}
 
 function showChoices(humanChoice, cpuChoice) {
   addChoiceContent("PLAYER", humanChoice, infoGameContainer);
