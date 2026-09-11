@@ -7,7 +7,10 @@ let numberRound = Number(numberRoundContainer.textContent);
 const infoGameContainer = document.querySelector(".info-game");
 
 const infoWinnerRound = document.createElement("div");
-infoWinnerRound.classList.add('info-Winner-Round')
+infoWinnerRound.classList.add("info-Winner-Round");
+
+const messageFinishRound = document.createElement("p");
+messageFinishRound.classList.add("title-round")
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
@@ -15,6 +18,8 @@ humanOptions.forEach((option) => {
     infoWinnerRound.innerHTML = "";
     const humanChoice = getHumanChoice(option).toLowerCase();
     const cpuChoice = getComputerChoice();
+    messageFinishRound.textContent = `Round ${numberRoundContainer.textContent} played:`;
+    body.appendChild(messageFinishRound);
     showChoices(humanChoice, cpuChoice);
     playRound(humanChoice, cpuChoice);
   });
@@ -88,7 +93,7 @@ function showChoices(humanChoice, cpuChoice) {
 
 function addChoiceContent(player, content, parentContainer) {
   const containerChoice = document.createElement("div");
-  containerChoice.classList.add('info-play');
+  containerChoice.classList.add("info-play");
   const choicePlayer = document.createElement("p");
   choicePlayer.textContent = player;
   const choiceContainer = document.createElement("p");
@@ -113,10 +118,10 @@ function showWinner(content, parentContainer) {
   body.appendChild(parentContainer);
 }
 
-function addBackgroundContainer (content, parentContainer){
-  if(content === 'PLAYER'){
-    parentContainer.style.backgroundColor = "#20ED18"
-  } else if(content === 'CPU'){
-    parentContainer.style.backgroundColor = "#D61515"
+function addBackgroundContainer(content, parentContainer) {
+  if (content === "PLAYER") {
+    parentContainer.style.backgroundColor = "#20ED18";
+  } else if (content === "CPU") {
+    parentContainer.style.backgroundColor = "#D61515";
   }
 }

@@ -12,7 +12,6 @@
   --blue-color: rgb(76, 76, 209);
   --green-color: rgb(100, 235, 100);
   --violet-color: rgb(87, 12, 141);
-  
 }
 
 body {
@@ -22,6 +21,7 @@ body {
 h1,
 h2,
 h3,
+.title-round,
 #info {
   text-align: center;
 }
@@ -46,11 +46,20 @@ h1 {
 }
 
 h2,
+h3,
+.title-round {
+  font-size: 2rem;
+  color: var(--violet-color);
+}
+
+h2,
 h3 {
   margin: 10px auto;
-  font-size: 2rem;
   width: 200px;
-  color: var(--violet-color);
+}
+
+.title-round{
+  margin: 20px 0 50px;
 }
 
 .scoreContainer {
@@ -123,22 +132,22 @@ h3 {
   filter: brightness(80%);
 }
 
-.info-game{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.info-game {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.info-game p{
+.info-game p {
   font-size: 24px;
 }
 
-.info-Winner-Round{
-    padding: 20px;
-    margin: 30px auto;
-    border: 2px solid black;
-    width: 50%;
-    border-radius: 30px;
+.info-Winner-Round {
+  padding: 20px;
+  margin: 30px auto;
+  border: 2px solid black;
+  width: 50%;
+  border-radius: 30px;
 }
 
 .info-Winner-Round p {
@@ -146,11 +155,11 @@ h3 {
   font-size: 25px;
 }
 
-.info-play p{
+.info-play p {
   font-size: 20px;
 }
 
-.info-play :first-child{
+.info-play :first-child,
+.title-round {
   font-weight: bold;
 }
-
