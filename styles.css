@@ -123,16 +123,18 @@ h3 {
 }
 
 .info-game{
-    border: 1px solid black;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
 
+.info-game p{
+  font-size: 24px;
 }
 
 .info-Winner-Round{
     padding: 20px;
-    margin: 20px auto;
+    margin: 30px auto;
     border: 2px solid black;
     width: 50%;
     border-radius: 30px;
@@ -142,3 +144,12 @@ h3 {
   text-align: center;
   font-size: 25px;
 }
+
+.info-play p{
+  font-size: 20px;
+}
+
+.info-play :first-child{
+  font-weight: bold;
+}
+

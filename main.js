@@ -13,7 +13,7 @@ humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     infoGameContainer.innerHTML = "";
     infoWinnerRound.innerHTML = "";
-    const humanChoice = getHumanChoice(option);
+    const humanChoice = getHumanChoice(option).toLowerCase();
     const cpuChoice = getComputerChoice();
     showChoices(humanChoice, cpuChoice);
     playRound(humanChoice, cpuChoice);
@@ -88,6 +88,7 @@ function showChoices(humanChoice, cpuChoice) {
 
 function addChoiceContent(player, content, parentContainer) {
   const containerChoice = document.createElement("div");
+  containerChoice.classList.add('info-play');
   const choicePlayer = document.createElement("p");
   choicePlayer.textContent = player;
   const choiceContainer = document.createElement("p");
