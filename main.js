@@ -104,9 +104,19 @@ function showWinner(content, parentContainer) {
     const winnerName = document.createElement("p");
     winnerName.textContent = content;
     parentContainer.append(titleContainer, winnerName);
+    addBackgroundContainer(content, parentContainer);
   } else {
     titleContainer.textContent = "DRAW";
     parentContainer.appendChild(titleContainer);
+    parentContainer.style.backgroundColor = "#E3CF39";
   }
   body.appendChild(parentContainer);
+}
+
+function addBackgroundContainer (content, parentContainer){
+  if(content === 'PLAYER'){
+    parentContainer.style.backgroundColor = "#20ED18"
+  } else if(content === 'CPU'){
+    parentContainer.style.backgroundColor = "#D61515"
+  }
 }
