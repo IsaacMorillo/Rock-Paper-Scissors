@@ -6,12 +6,13 @@ const numberRoundContainer = document.querySelector("#number-round");
 let numberRound = Number(numberRoundContainer.textContent);
 const infoGameContainer = document.querySelector(".info-game");
 
-const infoWinnerRound = document.createElement('div');
+const infoWinnerRound = document.createElement("div");
+infoWinnerRound.classList.add('info-Winner-Round')
 
 humanOptions.forEach((option) => {
   option.addEventListener("click", () => {
     infoGameContainer.innerHTML = "";
-    infoWinnerRound.innerHTML ="";
+    infoWinnerRound.innerHTML = "";
     const humanChoice = getHumanChoice(option);
     const cpuChoice = getComputerChoice();
     showChoices(humanChoice, cpuChoice);
@@ -86,7 +87,7 @@ function showChoices(humanChoice, cpuChoice) {
 }
 
 function addChoiceContent(player, content, parentContainer) {
-  const containerChoice = document.createElement('div');
+  const containerChoice = document.createElement("div");
   const choicePlayer = document.createElement("p");
   choicePlayer.textContent = player;
   const choiceContainer = document.createElement("p");

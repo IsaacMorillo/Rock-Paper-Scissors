@@ -127,5 +127,18 @@ h3 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
+
+}
+
+.info-Winner-Round{
+    padding: 20px;
+    margin: 20px auto;
+    border: 2px solid black;
+    width: 50%;
+    border-radius: 30px;
+}
+
+.info-Winner-Round p {
+  text-align: center;
+  font-size: 25px;
 }
